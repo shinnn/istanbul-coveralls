@@ -42,7 +42,7 @@ istanbul cover test.js && istanbul-coveralls --no-rm
 
 ## Example
 
-### [Mocha](http://visionmedia.github.io/mocha/) and [mocha-lcov-reporter](https://github.com/StevenLooman/mocha-lcov-reporter)
+### [Mocha](http://visionmedia.github.io/mocha/)
 
 ```
 istanbul cover ./node_modules/.bin/_mocha && ./node_modules/.bin/istanbul-coveralls
