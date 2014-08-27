@@ -10,9 +10,17 @@ var rimraf = require('rimraf');
 var istanbulCoveralls = require('require-main')();
 var pkg = require('./package.json');
 
-var fixtureLcov = 'TN:\nSF:' +
-                  path.resolve('fixture.js') +
-                  '\nFNF:0\nFNH:0\nLF:0\nLH:0\nBRF:0\nBRH:0\nend_of_record\n';
+var fixtureLcov;
+if (process.env.REPORTING) {
+  fixtureLcov = fs.readFileSync('coverage/lcov.info');
+} else {
+  fixtureLcov = 'TN:\nSF:' + path.resolve('fixture.js') +
+                '\nFNF:0\nFNH:0\nLF:0\nLH:0\nBRF:0\nBRH:0\nend_of_record\n';
+
+  // Set temporary JOB ID for testing
+  process.env.COVERALLS_SERVICE_JOB_ID = '33674997';
+}
+
 var writeLcov = fs.outputFile.bind(null, 'coverage/lcov.info', fixtureLcov);
 
 before(fs.writeFile.bind(null, './fixture.js', ''));
