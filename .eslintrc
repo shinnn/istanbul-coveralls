@@ -1,0 +1,11 @@
+env:
+  browser: false
+  node: true
+  mocha: true
+rules:
+  no-extra-parens: 2
+  eqeqeq: 2
+  block-scoped-var: 2
+  quotes:
+    - 2
+    - single
