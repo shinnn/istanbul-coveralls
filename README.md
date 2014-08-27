@@ -2,6 +2,7 @@
 
 [![NPM version](https://badge.fury.io/js/istanbul-coveralls.svg)](https://www.npmjs.org/package/istanbul-coveralls)
 [![Build Status](https://travis-ci.org/shinnn/istanbul-coveralls.svg?branch=master)](https://travis-ci.org/shinnn/istanbul-coveralls)
+[![Coverage Status](https://img.shields.io/coveralls/shinnn/istanbul-coveralls.svg)](https://coveralls.io/r/shinnn/istanbul-coveralls?branch=master)
 [![Dependency Status](https://david-dm.org/shinnn/istanbul-coveralls.svg)](https://david-dm.org/shinnn/istanbul-coveralls)
 [![devDependency Status](https://david-dm.org/shinnn/istanbul-coveralls/dev-status.svg)](https://david-dm.org/shinnn/istanbul-coveralls#info=devDependencies)
 
