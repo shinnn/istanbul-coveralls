@@ -15,9 +15,11 @@ var fixtureLcov = 'TN:\nSF:' +
                   '\nFNF:0\nFNH:0\nLF:0\nLH:0\nBRF:0\nBRH:0\nend_of_record\n';
 var writeLcov = fs.outputFile.bind(null, 'coverage/lcov.info', fixtureLcov);
 
-describe('istanbulCoveralls()', function() {
-  beforeEach(rimraf.bind(null, 'coverage'));
+before(fs.writeFile.bind(null, './fixture.js', ''));
+beforeEach(rimraf.bind(null, './coverage'));
+after(rimraf.bind(null, './fixture.js'));
 
+describe('istanbulCoveralls()', function() {
   it('should pass an error when lcov.info doesn\'t exist.', function(done) {
     istanbulCoveralls(function(err) {
       assert(err);
@@ -58,8 +60,6 @@ describe('istanbulCoveralls()', function() {
 });
 
 describe('"istanbul-coveralls" command', function() {
-  beforeEach(rimraf.bind(null, 'coverage'));
-
   it('should run index.js script.', function(done) {
     writeLcov(function(err) {
       assert.ifError(err);
@@ -74,19 +74,6 @@ describe('"istanbul-coveralls" command', function() {
         assert(err);
         assert(/Failed to parse string/.test(err.message));
         done();
-      });
-    });
-  });
-
-  it('should not remove ./coverage when `--no-rm` flag is enabled.', function(done) {
-    writeLcov(function(err) {
-      assert.ifError(err);
-      exec('node cli.js --no-rm', function(err) {
-        assert.ifError(err);
-        fs.exists('./coverage', function(exists) {
-          assert(exists);
-          done();
-        });
       });
     });
   });
@@ -116,6 +103,19 @@ describe('"istanbul-coveralls" command', function() {
     exec('node cli.js -v', function(err, stdout) {
       assert.strictEqual(stdout, pkg.version + '\n');
       done(err);
+    });
+  });
+
+  it('should not remove ./coverage when `--no-rm` flag is enabled.', function(done) {
+    writeLcov(function(err) {
+      assert.ifError(err);
+      exec('node cli.js --no-rm', function(err) {
+        assert.ifError(err);
+        fs.exists('./coverage', function(exists) {
+          assert(exists);
+          done();
+        });
+      });
     });
   });
 });
