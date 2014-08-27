@@ -11,6 +11,7 @@ var istanbulCoveralls = require('require-main')();
 var pkg = require('./package.json');
 
 var fixtureLcov;
+/* istanbul ignore if */
 if (process.env.REPORTING) {
   fixtureLcov = fs.readFileSync('coverage/lcov.info');
 } else {
