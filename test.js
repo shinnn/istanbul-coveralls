@@ -1,3 +1,4 @@
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 'use strict';
 
 var assert = require('assert');
@@ -12,7 +13,7 @@ var pkg = require('./package.json');
 
 var fixtureLcov;
 /* istanbul ignore if */
-if (process.env.REPORTING) {
+if (process.env.npm_lifecycle_event === 'coveralls') {
   fixtureLcov = fs.readFileSync('coverage/lcov.info');
 } else {
   fixtureLcov = 'TN:\nSF:' + path.resolve('fixture.js') +

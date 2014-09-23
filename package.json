@@ -12,7 +12,7 @@
     "pretest": "eslint *.js & jscs *.js",
     "test": "_mocha test.js --timeout 7500",
     "coverage": "istanbul cover _mocha test.js -- --timeout 7500",
-    "coveralls": "REPORTING=1 ${npm_package_scripts_coverage} && ${npm_package_bin}"
+    "coveralls": "${npm_package_scripts_coverage} && ${npm_package_bin}"
   },
   "licenses": [
     {
