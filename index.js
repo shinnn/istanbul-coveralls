@@ -1,6 +1,6 @@
 /*!
  * istanbul-coveralls | MIT (c) Shinnosuke Watanabe
- * https://github.com/shinnn/node-strip-dirs
+ * https://github.com/shinnn/istanbul-coveralls
 */
 
 'use strict';
@@ -10,15 +10,13 @@ var fs = require('fs');
 var handleInput = require('coveralls').handleInput;
 var rimraf = require('rimraf');
 
-module.exports = function istanbulCoveralls(_option, _cb) {
-  var cb;
+module.exports = function istanbulCoveralls(_option, cb) {
   var option;
-  if (_cb === undefined) {
+  if (cb === undefined) {
     cb = _option;
     option = {rimraf: true};
   } else {
     option = _option;
-    cb = _cb;
   }
 
   fs.readFile('./coverage/lcov.info', {encoding: 'utf-8'}, function(err, buf) {
