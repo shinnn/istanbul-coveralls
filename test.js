@@ -38,6 +38,14 @@ describe('istanbulCoveralls()', function() {
     });
   });
 
+  it('should not overwrite arguments.', function(done) {
+    var callback = function() {
+      assert.strictEqual(typeof callback, 'function');
+      done();
+    };
+    istanbulCoveralls(callback);
+  });
+
   it('should pass an error when it cannot parse lcov.info.', function(done) {
     fs.outputFile('coverage/lcov.info', 'dummy', function(err) {
       assert.ifError(err);

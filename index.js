@@ -10,13 +10,10 @@ var fs = require('fs');
 var handleInput = require('coveralls').handleInput;
 var rimraf = require('rimraf');
 
-module.exports = function istanbulCoveralls(_option, cb) {
-  var option;
+module.exports = function istanbulCoveralls(option, cb) {
   if (cb === undefined) {
-    cb = _option;
+    cb = option;
     option = {rimraf: true};
-  } else {
-    option = _option;
   }
 
   fs.readFile('./coverage/lcov.info', {encoding: 'utf-8'}, function(err, buf) {
