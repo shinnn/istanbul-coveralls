@@ -8,7 +8,7 @@ var path = require('path');
 
 var rimraf = require('rimraf');
 
-var istanbulCoveralls = require('require-main')();
+var istanbulCoveralls = require('./');
 var pkg = require('./package.json');
 
 var fixtureLcov;
