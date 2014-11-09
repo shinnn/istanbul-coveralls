@@ -48,5 +48,8 @@
     "jscs": "^1.7.3",
     "mocha": "^2.0.1"
   },
+  "jscsConfig": {
+    "preset": "google",
+    "maximumLineLength": 98
   }
 }
