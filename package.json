@@ -7,11 +7,11 @@
     "name": "Shinnosuke Watanabe",
     "url": "https://github.com/shinnn"
   },
-  "bin": "./cli.js",
+  "bin": "cli.js",
   "scripts": {
     "pretest": "eslint *.js & jscs *.js",
-    "test": "_mocha test.js --timeout 7500",
-    "coverage": "istanbul cover _mocha test.js -- --timeout 7500",
+    "test": "_mocha test.js --timeout 25600",
+    "coverage": "istanbul cover _mocha test.js -- --timeout 25600",
     "coveralls": "${npm_package_scripts_coverage} && ${npm_package_bin}"
   },
   "licenses": [
@@ -31,6 +31,8 @@
     "command",
     "cli",
     "coverage",
+    "report",
+    "integration",
     "lcov",
     "shorten",
     "alias"
