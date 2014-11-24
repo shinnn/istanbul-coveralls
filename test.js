@@ -3,9 +3,10 @@
 
 var assert = require('assert');
 var exec = require('child_process').exec;
-var fs = require('fs-extra');
+var fs = require('fs');
 var path = require('path');
 
+var outputFile = require('output-file');
 var rimraf = require('rimraf');
 
 var istanbulCoveralls = require('./');
@@ -23,7 +24,7 @@ if (process.env.npm_lifecycle_event === 'coveralls') {
   process.env.COVERALLS_SERVICE_JOB_ID = '33674997';
 }
 
-var writeLcov = fs.outputFile.bind(null, 'coverage/lcov.info', fixtureLcov);
+var writeLcov = outputFile.bind(null, 'coverage/lcov.info', fixtureLcov);
 
 before(fs.writeFile.bind(null, './fixture.js', ''));
 beforeEach(rimraf.bind(null, './coverage'));
@@ -47,7 +48,7 @@ describe('istanbulCoveralls()', function() {
   });
 
   it('should pass an error when it cannot parse lcov.info.', function(done) {
-    fs.outputFile('coverage/lcov.info', 'dummy', function(err) {
+    outputFile('coverage/lcov.info', 'dummy', function(err) {
       assert.ifError(err);
       istanbulCoveralls(function(err) {
         assert.strictEqual(err.message, 'Failed to parse string');
@@ -86,7 +87,7 @@ describe('"istanbul-coveralls" command', function() {
   });
 
   it('should print error message when the script throws an error.', function(done) {
-    fs.outputFile('coverage/lcov.info', 'dummy', function(err) {
+    outputFile('coverage/lcov.info', 'dummy', function(err) {
       assert.ifError(err);
       exec('node cli.js', function(err) {
         assert(err);
