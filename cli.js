@@ -1,31 +1,33 @@
 #!/usr/bin/env node
 'use strict';
 
-var argv = require('minimist')(process.argv.slice(2));
-var pkg = require('./package.json');
+var argv = require('minimist')(process.argv.slice(2), {
+  alias: {
+    h: 'help',
+    v: 'version'
+  },
+  boolean: ['help', 'rm', 'version']
+});
 
-if (argv.v || argv.version) {
-  console.log(pkg.version);
-} else if (argv.h || argv.help) {
+if (argv.version) {
+  console.log(require('./package.json').version);
+} else if (argv.help) {
   var chalk = require('chalk');
+  var pkg = require('./package.json');
+
   console.log([
     chalk.cyan(pkg.name) + chalk.gray(' v' + pkg.version),
     pkg.description,
     '',
     'Example:',
     '  istanbul cover test.js && istanbul-coveralls',
-    'Option:',
+    'Options:',
     chalk.yellow('  --h, --help   ') + '  print usage information',
     chalk.yellow('  --v, --version') + '  print version',
     chalk.yellow('  --no-rm       ') + '  preserve ./coverage directory after coverage reporting'
   ].join('\n'));
 } else {
-  var option = {rimraf: true};
-  if (argv.rm === false) {
-    option.rimraf = false;
-  }
-
-  require('./')(option, function(err) {
+  require('./')({rimraf: argv.rm}, function(err) {
     if (err) {
       throw err;
     }
