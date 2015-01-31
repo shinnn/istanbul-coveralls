@@ -16,13 +16,13 @@ module.exports = function istanbulCoveralls(option, cb) {
     option = {rimraf: true};
   }
 
-  fs.readFile('./coverage/lcov.info', {encoding: 'utf-8'}, function(err, buf) {
+  fs.readFile('./coverage/lcov.info', 'utf8', function(err, content) {
     if (err) {
       cb(err);
       return;
     }
 
-    handleInput(buf.toString(), function(msg) {
+    handleInput(content, function(msg) {
       if (msg) {
         cb(new Error(msg));
         return;
