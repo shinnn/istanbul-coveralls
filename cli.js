@@ -12,19 +12,20 @@ var argv = require('minimist')(process.argv.slice(2), {
 if (argv.version) {
   console.log(require('./package.json').version);
 } else if (argv.help) {
-  var chalk = require('chalk');
+  var sumUp = require('sum-up');
+  var yellow = require('chalk').yellow;
+
   var pkg = require('./package.json');
 
   console.log([
-    chalk.cyan(pkg.name) + chalk.gray(' v' + pkg.version),
-    pkg.description,
+    sumUp(pkg),
     '',
     'Example:',
     '  istanbul cover test.js && istanbul-coveralls',
     'Options:',
-    chalk.yellow('  --h, --help   ') + '  print usage information',
-    chalk.yellow('  --v, --version') + '  print version',
-    chalk.yellow('  --no-rm       ') + '  preserve ./coverage directory after coverage reporting'
+    yellow('  -h, --help   ') + '  print usage information',
+    yellow('  -v, --version') + '  print version',
+    yellow('      --no-rm  ') + '  preserve ./coverage directory after coverage reporting'
   ].join('\n'));
 } else {
   require('./')({rimraf: argv.rm}, function(err) {
