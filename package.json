@@ -9,7 +9,7 @@
   },
   "bin": "cli.js",
   "scripts": {
-    "pretest": "eslint *.js & jscs *.js",
+    "pretest": "jscs *.js && eslint *.js",
     "test": "_mocha test.js --timeout 25600",
     "coverage": "istanbul cover _mocha test.js -- --timeout 25600",
     "coveralls": "${npm_package_scripts_coverage} && ${npm_package_bin}"
@@ -22,8 +22,7 @@
   ],
   "files": [
     "cli.js",
-    "index.js",
-    "LICENSE"
+    "index.js"
   ],
   "keywords": [
     "istanbul",
@@ -46,11 +45,11 @@
     "sum-up": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^0.9.2",
-    "istanbul": "^0.3.2",
-    "jscs": "^1.7.3",
-    "mocha": "^2.0.1",
-    "output-file": "^1.0.0"
+    "eslint": "^0.13.0",
+    "istanbul": "^0.3.5",
+    "jscs": "^1.10.0",
+    "mocha": "^2.1.0",
+    "output-file": "^1.1.1"
   },
   "jscsConfig": {
     "preset": "google",
