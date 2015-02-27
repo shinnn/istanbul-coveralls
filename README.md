@@ -1,8 +1,8 @@
 # istanbul-coveralls 
 
-[![NPM version](https://img.shields.io/npm/v/istanbul-coveralls.svg?style=flat)](https://www.npmjs.com/package/istanbul-coveralls)
+[![NPM version](https://img.shields.io/npm/v/istanbul-coveralls.svg)](https://www.npmjs.com/package/istanbul-coveralls)
 [![Build Status](https://travis-ci.org/shinnn/istanbul-coveralls.svg?branch=master)](https://travis-ci.org/shinnn/istanbul-coveralls)
-[![Coverage Status](https://img.shields.io/coveralls/shinnn/istanbul-coveralls.svg?style=flat)](https://coveralls.io/r/shinnn/istanbul-coveralls?branch=master)
+[![Coverage Status](https://img.shields.io/coveralls/shinnn/istanbul-coveralls.svg)](https://coveralls.io/r/shinnn/istanbul-coveralls?branch=master)
 [![Dependency Status](https://david-dm.org/shinnn/istanbul-coveralls.svg)](https://david-dm.org/shinnn/istanbul-coveralls)
 [![devDependency Status](https://david-dm.org/shinnn/istanbul-coveralls/dev-status.svg)](https://david-dm.org/shinnn/istanbul-coveralls#info=devDependencies)
 
@@ -49,7 +49,7 @@ istanbul cover test.js && istanbul-coveralls --no-rm
 istanbul cover ./node_modules/.bin/_mocha && ./node_modules/.bin/istanbul-coveralls
 ```
 
-If you run the test as a [npm script](https://www.npmjs.org/doc/misc/npm-scripts.html), [you can omit directory names from the command](https://www.npmjs.org/doc/misc/npm-scripts.html#path).
+If you run the test as a [npm script](https://docs.npmjs.com/misc/scripts), [you can omit directory names from the command](https://docs.npmjs.com/misc/scripts#path).
 
 ```sh
 istanbul cover _mocha && istanbul-coveralls
