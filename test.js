@@ -50,7 +50,7 @@ describe('istanbulCoveralls()', function() {
 
   it('should pass an error when it cannot parse lcov.info.', function(done) {
     outputFile('coverage/lcov.info', 'dummy', function(err) {
-      assert.ifError(err);
+      assert.strictEqual(err, null);
       istanbulCoveralls(function(err) {
         assert.strictEqual(err.message, 'Failed to parse string');
         done();
@@ -60,18 +60,19 @@ describe('istanbulCoveralls()', function() {
 
   it('should not pass an error when it takes valid lcov.info.', function(done) {
     writeLcov(function(err) {
-      assert.ifError(err);
+      assert.strictEqual(err, null);
       istanbulCoveralls(done);
     });
   });
 
   it('should not remove ./coverage when `rimraf` option is enabled.', function(done) {
     writeLcov(function(err) {
-      assert.ifError(err);
+      assert.strictEqual(err, null);
       istanbulCoveralls({rimraf: false}, function(err) {
-        assert.ifError(err);
-        fs.exists('./coverage', function(exists) {
-          assert(exists);
+        assert.strictEqual(err, null);
+        fs.stat('./coverage', function(err, stat) {
+          assert.strictEqual(err, null);
+          assert(stat.isDirectory());
           done();
         });
       });
@@ -82,7 +83,7 @@ describe('istanbulCoveralls()', function() {
 describe('"istanbul-coveralls" command', function() {
   it('should run index.js script.', function(done) {
     writeLcov(function(err) {
-      assert.ifError(err);
+      assert.strictEqual(err, null);
       exec('node cli.js', done);
     });
   });
@@ -128,11 +129,12 @@ describe('"istanbul-coveralls" command', function() {
 
   it('should not remove ./coverage when `--no-rm` flag is enabled.', function(done) {
     writeLcov(function(err) {
-      assert.ifError(err);
+      assert.strictEqual(err, null);
       exec('node cli.js --no-rm', function(err) {
-        assert.ifError(err);
-        fs.exists('./coverage', function(exists) {
-          assert(exists);
+        assert.strictEqual(err, null);
+        fs.stat('./coverage', function(err, stat) {
+          assert.strictEqual(err, null);
+          assert(stat.isDirectory());
           done();
         });
       });
