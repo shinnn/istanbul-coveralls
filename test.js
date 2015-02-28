@@ -69,7 +69,8 @@ describe('istanbulCoveralls()', function() {
     writeLcov(function(err) {
       assert.strictEqual(err, null);
       istanbulCoveralls({rimraf: false}, function(err) {
-        assert.strictEqual(err, null);
+        assert.strictEqual(err, undefined);
+        assert.equal(arguments.length, 0);
         fs.stat('./coverage', function(err, stat) {
           assert.strictEqual(err, null);
           assert(stat.isDirectory());
