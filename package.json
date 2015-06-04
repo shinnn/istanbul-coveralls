@@ -3,23 +3,15 @@
   "version": "1.0.2",
   "description": "A simple alias for istanbul + coveralls",
   "repository": "shinnn/istanbul-coveralls",
-  "author": {
-    "name": "Shinnosuke Watanabe",
-    "url": "https://github.com/shinnn"
-  },
-  "bin": "cli.js",
+  "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
-    "pretest": "jscs *.js && eslint *.js",
+    "pretest": "eslint --config node_modules/@shinnn/eslintrc-node/rc.json --env mocha --rule 'no-reserved-keys: 0' --ignore-path .gitignore .",
     "test": "_mocha test.js --timeout 25600",
     "coverage": "istanbul cover _mocha test.js -- --timeout 25600",
     "coveralls": "${npm_package_scripts_coverage} && ${npm_package_bin}"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/shinnn/istanbul-coveralls/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
+  "bin": "cli.js",
   "files": [
     "cli.js",
     "index.js"
@@ -40,19 +32,15 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "coveralls": "^2.11.2",
-    "minimist": "^1.1.0",
-    "rimraf": "^2.2.8",
+    "minimist": "^1.1.1",
+    "rimraf": "^2.3.4",
     "sum-up": "^1.0.1"
   },
   "devDependencies": {
-    "eslint": "^0.15.1",
-    "istanbul": "^0.3.6",
-    "jscs": "^1.11.3",
-    "mocha": "^2.1.0",
+    "@shinnn/eslintrc-node": "^1.0.2",
+    "eslint": "^0.22.1",
+    "istanbul": "^0.3.14",
+    "mocha": "^2.2.5",
     "output-file": "^1.1.1"
-  },
-  "jscsConfig": {
-    "preset": "google",
-    "maximumLineLength": 98
   }
 }

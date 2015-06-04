@@ -1,4 +1,3 @@
-// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 /* eslint no-shadow: 0 */
 'use strict';
 
