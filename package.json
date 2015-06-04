@@ -1,6 +1,6 @@
 {
   "name": "istanbul-coveralls",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple alias for istanbul + coveralls",
   "repository": "shinnn/istanbul-coveralls",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
