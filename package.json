@@ -5,7 +5,7 @@
   "repository": "shinnn/istanbul-coveralls",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
-    "pretest": "eslint --config node_modules/@shinnn/eslintrc-node/rc.json --env mocha --rule 'no-reserved-keys: 0' --ignore-path .gitignore .",
+    "pretest": "eslint --config @shinnn/cli --env mocha --rule 'no-reserved-keys: 0' --ignore-path .gitignore .",
     "test": "_mocha test.js --timeout 25600",
     "coverage": "istanbul cover _mocha test.js -- --timeout 25600",
     "coveralls": "${npm_package_scripts_coverage} && ${npm_package_bin}"
@@ -30,17 +30,17 @@
     "alias"
   ],
   "dependencies": {
-    "chalk": "^1.0.0",
-    "coveralls": "^2.11.2",
-    "minimist": "^1.1.1",
-    "rimraf": "^2.3.4",
-    "sum-up": "^1.0.1"
+    "chalk": "^1.1.3",
+    "coveralls": "^2.11.9",
+    "minimist": "^1.2.0",
+    "rimraf": "^2.5.2",
+    "sum-up": "^2.0.0"
   },
   "devDependencies": {
-    "@shinnn/eslintrc-node": "^1.0.2",
-    "eslint": "^0.22.1",
-    "istanbul": "^0.3.14",
-    "mocha": "^2.2.5",
+    "@shinnn/eslint-config-cli": "^1.0.0",
+    "eslint": "^2.10.1",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
     "output-file": "^1.1.1"
   }
 }
