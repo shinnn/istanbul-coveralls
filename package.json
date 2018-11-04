@@ -1,46 +1,46 @@
 {
-  "name": "istanbul-coveralls",
-  "version": "1.0.3",
-  "description": "A simple alias for istanbul + coveralls",
-  "repository": "shinnn/istanbul-coveralls",
-  "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
-  "scripts": {
-    "pretest": "eslint --config @shinnn/cli --env mocha --rule 'no-reserved-keys: 0' --ignore-path .gitignore .",
-    "test": "_mocha test.js --timeout 25600",
-    "coverage": "istanbul cover _mocha test.js -- --timeout 25600",
-    "coveralls": "${npm_package_scripts_coverage} && ${npm_package_bin}"
-  },
-  "license": "MIT",
-  "bin": "cli.js",
-  "files": [
-    "cli.js",
-    "index.js"
-  ],
-  "keywords": [
-    "istanbul",
-    "coveralls",
-    "command",
-    "command-line",
-    "cli",
-    "coverage",
-    "report",
-    "integration",
-    "lcov",
-    "shorten",
-    "alias"
-  ],
-  "dependencies": {
-    "chalk": "^1.1.3",
-    "coveralls": "^2.11.9",
-    "minimist": "^1.2.0",
-    "rimraf": "^2.5.2",
-    "sum-up": "^2.0.0"
-  },
-  "devDependencies": {
-    "@shinnn/eslint-config-cli": "^1.0.0",
-    "eslint": "^2.10.1",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.4.5",
-    "output-file": "^1.1.1"
-  }
+    "name": "istanbul-coveralls",
+    "version": "1.0.3",
+    "description": "A simple alias for istanbul + coveralls",
+    "repository": "shinnn/istanbul-coveralls",
+    "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+    "scripts": {
+        "pretest2": "eslint --config @shinnn/cli --env mocha --rule 'no-reserved-keys: 0' --ignore-path .gitignore .",
+        "test": "_mocha test.js --timeout 25600",
+        "coverage": "istanbul cover _mocha test.js -- --timeout 25600",
+        "coveralls": "${npm_package_scripts_coverage} && ${npm_package_bin}"
+    },
+    "license": "MIT",
+    "bin": "cli.js",
+    "files": [
+        "cli.js",
+        "index.js"
+    ],
+    "keywords": [
+        "istanbul",
+        "coveralls",
+        "command",
+        "command-line",
+        "cli",
+        "coverage",
+        "report",
+        "integration",
+        "lcov",
+        "shorten",
+        "alias"
+    ],
+    "dependencies": {
+        "chalk": "^1.1.3",
+        "coveralls": "^3.0.2",
+        "minimist": "^1.2.0",
+        "rimraf": "^2.5.2",
+        "sum-up": "^2.0.0"
+    },
+    "devDependencies": {
+        "@shinnn/eslint-config-cli": "^1.0.0",
+        "eslint": "^2.10.1",
+        "istanbul": "^0.4.3",
+        "mocha": "^5.2.0",
+        "output-file": "^1.1.1"
+    }
 }

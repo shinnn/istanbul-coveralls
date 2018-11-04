@@ -23,6 +23,7 @@ before_script:
   - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 
 script:
+  - npm audit
   - npm run-script coverage
 after_script:
   - npm run-script coveralls
