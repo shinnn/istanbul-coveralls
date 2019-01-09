@@ -5,7 +5,7 @@
     "repository": "shinnn/istanbul-coveralls",
     "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
     "scripts": {
-        "pretest2": "eslint --config @shinnn/cli --env mocha --rule 'no-reserved-keys: 0' --ignore-path .gitignore .",
+        "pretest": "eslint --config @shinnn/cli --env mocha --rule 'no-reserved-keys: 0' --ignore-path .gitignore .",
         "test": "_mocha test.js --timeout 25600",
         "coverage": "istanbul cover _mocha test.js -- --timeout 25600",
         "coveralls": "${npm_package_scripts_coverage} && ${npm_package_bin}"
