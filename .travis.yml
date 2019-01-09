@@ -1,16 +1,25 @@
 sudo: false
-git:
-  depth: 2
-branches:
-  except:
-    - /^v\d/
+dist: trusty
 language: node_js
-node_js:
-  - iojs
-  - node
-notifications:
-  email: false
+
+env:
+  matrix:
+    - NODE_VERSION="8"
+    - NODE_VERSION="9" 
+    - NODE_VERSION="10" 
+
+before_install:
+  - pip install --user codecov
+  # Prepare node and npm
+  - nvm install $NODE_VERSION && nvm use $NODE_VERSION
+  - npm install
+
+before_script:
+  - "sudo chown root /opt/google/chrome/chrome-sandbox"
+  - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+
 script:
+  - npm audit
   - npm run-script coverage
 after_script:
   - npm run-script coveralls
